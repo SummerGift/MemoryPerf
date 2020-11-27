@@ -15,11 +15,13 @@
 #define MEM_ADDR       (void *)0x10100000
 #define MEM_LEN        0x100000
 
+static uint32_t data_len = MEM_LEN * ITERATIONS;
+
 static void memory_perf_8bit(void *addr, uint32_t len)
 {
     volatile uint8_t *read_addr;
     float seconds, speed;
-    uint32_t data_len = 0x100000 * ITERATIONS;
+
 
     printf("--------------------------------------\n");
     printf("8-bit write speed test begin.\n");
@@ -38,7 +40,6 @@ static void memory_perf_8bit(void *addr, uint32_t len)
     seconds = (unsigned int) get_time_mp() / (NSECS_PER_SEC * 1.0);
     speed = data_len / seconds;
 
-    printf("Data length : %lu MB.\n", data_len / 1000000);
     printf("Spend time : %f s.\n", seconds);
     printf("8-bit write speed: %f M/s.\n", speed / 1000000);
 
@@ -59,7 +60,6 @@ static void memory_perf_8bit(void *addr, uint32_t len)
     seconds = (unsigned int) get_time_mp() / (NSECS_PER_SEC * 1.0);
     speed = data_len / seconds;
 
-    printf("Data length : %lu MB.\n", data_len / 1000000);
     printf("Spend time : %f s.\n", seconds);
     printf("8-bit Read speed: %f M/s.\n", speed / 1000000);
 }
@@ -87,7 +87,6 @@ static void memory_perf_16bit(void *addr, uint32_t len)
     seconds = (unsigned int) get_time_mp() / (NSECS_PER_SEC * 1.0);
     speed = data_len / seconds;
 
-    printf("Data length : %lu MB.\n", data_len / 1000000);
     printf("Spend time : %f s.\n", seconds);
     printf("16-bit write speed: %f M/s.\n", speed / 1000000);
 
@@ -108,7 +107,6 @@ static void memory_perf_16bit(void *addr, uint32_t len)
     seconds = (unsigned int) get_time_mp() / (NSECS_PER_SEC * 1.0);
     speed = data_len / seconds;
 
-    printf("Data length : %lu MB.\n", data_len / 1000000);
     printf("Spend time : %f s.\n", seconds);
     printf("16-bit Read speed: %f M/s.\n", speed / 1000000);
 }
@@ -136,7 +134,6 @@ static void memory_perf_32bit(void *addr, uint32_t len)
     seconds = (unsigned int) get_time_mp() / (NSECS_PER_SEC * 1.0);
     speed = data_len / seconds;
 
-    printf("Data length : %lu MB.\n", data_len / 1000000);
     printf("Spend time : %f s.\n", seconds);
     printf("32-bit Write speed: %f M/s.\n", speed / 1000000);
 
@@ -157,7 +154,6 @@ static void memory_perf_32bit(void *addr, uint32_t len)
     seconds = (unsigned int) get_time_mp() / (NSECS_PER_SEC * 1.0);
     speed = data_len / seconds;
 
-    printf("Data length : %lu MB.\n", data_len / 1000000);
     printf("Spend time : %f s.\n", seconds);
     printf("32-bit Read speed: %f M/s.\n", speed / 1000000);
 }
@@ -169,6 +165,7 @@ static int memory_perf(void)
 
     printf("Memory performance testing start...\n");
     printf("address: %p, length: 0x%lx\n", address, len);
+    printf("Data length : %lu MB.\n", data_len / 1000000);
 
     memory_perf_8bit(address, len);
     memory_perf_16bit(address, len);
