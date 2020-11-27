@@ -9,12 +9,11 @@
  */
 
 #include <stdio.h>
-#include <stdlib.h>
 #include "portme.h"
 
-#define ITERATIONS             100
-#define MEM_UNCACHE_ADDR       (void *)0x10100000
-#define MEM_UNCACHE_LEN        0x100000
+#define ITERATIONS     100
+#define MEM_ADDR       (void *)0x10100000
+#define MEM_LEN        0x100000
 
 static void memory_perf_8bit(void *addr, uint32_t len)
 {
@@ -165,11 +164,11 @@ static void memory_perf_32bit(void *addr, uint32_t len)
 
 static int memory_perf(void)
 {
-    void *address = MEM_UNCACHE_ADDR;
-    uint32_t len = MEM_UNCACHE_LEN;
+    void *address = MEM_ADDR;
+    uint32_t len = MEM_LEN;
 
     printf("Memory performance testing start...\n");
-    printf("address: %p, length: %lx\n", address, len);
+    printf("address: %p, length: 0x%lx\n", address, len);
 
     memory_perf_8bit(address, len);
     memory_perf_16bit(address, len);
