@@ -51,7 +51,7 @@ static void memory_perf_8bit(void *addr, uint32_t len)
         {
             read_addr = (uint8_t *) (addr + i);
             asm volatile ("ldrb r0, [%0]\n"
-                    ::"r"(read_addr): "r0");
+                          ::"r"(read_addr): "r0");
         }
     }
     stop_time_mp();
@@ -96,11 +96,11 @@ static void memory_perf_16bit(void *addr, uint32_t len)
     start_time_mp();
     for(int i = 0; i < ITERATIONS; i++)
     {
-        for(int i = 0; i < len; i+=2)
+        for(int i = 0; i < len; i += 2)
         {
             read_addr = (uint16_t *) (addr + i);
             asm volatile ("ldrh r0, [%0]\n"
-                    ::"r"(read_addr): "r0");
+                          ::"r"(read_addr): "r0");
         }
     }
     stop_time_mp();
@@ -149,7 +149,7 @@ static void memory_perf_32bit(void *addr, uint32_t len)
         {
             read_addr = (uint32_t *) (addr + i);
             asm volatile ("ldr r0, [%0]\n"
-                    ::"r"(read_addr): "r0");
+                          ::"r"(read_addr): "r0");
         }
     }
     stop_time_mp();
