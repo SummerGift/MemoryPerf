@@ -136,6 +136,40 @@ Spend time : 0.090000 s.
 Memory performance completed.
 ```
 
+
+### 3.4 测试示例四
+
+测试环境  `stm32l475-atk-Pandora Cortex-M4 80M SRAM uncached -O3` ：
+
+```shell
+msh >memory_perf 0x20008000 0xa000
+Memory performance testing start...
+address: 0x20008000, length: 0xa000, iterations: 200
+Data length : 8 MB.
+--------------------------------------
+8-bit write speed test begin.
+Spend time : 0.180000 s.
+8-bit write speed: 45.511108 M/s.
+8-bit read speed test begin.
+Spend time : 0.449000 s.
+8-bit Read speed: 18.244987 M/s.
+--------------------------------------
+16-bit write speed test begin.
+Spend time : 0.090000 s.
+16-bit write speed: 91.022217 M/s.
+16-bit read speed test begin.
+Spend time : 0.225000 s.
+16-bit Read speed: 36.408890 M/s.
+--------------------------------------
+32-bit write speed test begin.
+Spend time : 0.045000 s.
+32-bit Write speed: 182.044434 M/s.
+32-bit read speed test begin.
+Spend time : 0.113000 s.
+32-bit Read speed: 72.495575 M/s.
+Memory performance completed.
+```
+
 ## 4、注意事项
 
 - 检查内存测试地址与长度是否设置正确
