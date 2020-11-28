@@ -35,18 +35,14 @@ RT-Thread online packages
 
 ## 3. 使用 `MemoryPerf`
 
-- 设置内存测试的地址 `MEM_UNCACHE_ADDR` 
-- 设置测试内存长度 `MEM_UNCACHE_LEN`
-- 设置迭代次数 `ITERATIONS`
-- 重新编译下载
-- 在 `msh` 中运行 `memory_perf` 命令
+- 在 `msh` 中运行  `<memory_perf 0x10100000 0x100000>` 命令
 
 ### 3.1 测试示例一
 
-测试环境 `zynq7045 Cortex-A9 800M uncached -O3` 优化：
+测试环境 `zynq7045 Cortex-A9 800M uncached -O3` ：
 
 ```shell
-msh />memory_perf
+msh />memory_perf 0x10100000 0x100000
 Memory performance testing start...
 address: 0x10100000, length: 0x100000
 Data length : 209 MB.
@@ -76,10 +72,10 @@ Memory performance completed.
 
 ### 3.1 测试示例二
 
-测试环境  `zynq7045 Cortex-A9 800M cached -O3`  优化：
+测试环境  `zynq7045 Cortex-A9 800M cached -O3` ：
 
 ```shell
-msh />memory_perf                     # Testing with cache
+msh />memory_perf 0x10100000 0x100000 # Testing with cache
 Memory performance testing start...
 address: 0x10100000, length: 0x100000
 Data length : 209 MB.
