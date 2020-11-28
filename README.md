@@ -43,39 +43,34 @@ RT-Thread online packages
 
 ### 3.1 测试示例一
 
-测试环境 `zynq7045 Cortex-A9 800M uncached -O0` 优化：
+测试环境 `zynq7045 Cortex-A9 800M uncached -O3` 优化：
 
-```
+```shell
 msh />memory_perf
 Memory performance testing start...
 address: 0x10100000, length: 0x100000
+Data length : 209 MB.
 --------------------------------------
 8-bit write speed test begin.
-Data length : 104 MB.
-Spend time : 3.740000 s.
+Spend time : 7.480000 s.
 8-bit write speed: 28.036793 M/s.
 8-bit read speed test begin.
-Data length : 104 MB.
-Spend time : 3.570000 s.
-8-bit Read speed: 29.371878 M/s.
+Spend time : 5.380000 s.
+8-bit Read speed: 38.980518 M/s.
 --------------------------------------
 16-bit write speed test begin.
-Data length : 104 MB.
-Spend time : 1.870000 s.
+Spend time : 3.740000 s.
 16-bit write speed: 56.073586 M/s.
 16-bit read speed test begin.
-Data length : 104 MB.
-Spend time : 1.790000 s.
-16-bit Read speed: 58.579666 M/s.
+Spend time : 2.690000 s.
+16-bit Read speed: 77.961037 M/s.
 --------------------------------------
 32-bit write speed test begin.
-Data length : 104 MB.
-Spend time : 0.930000 s.
-32-bit Write speed: 112.750107 M/s.
+Spend time : 1.870000 s.
+32-bit Write speed: 112.147171 M/s.
 32-bit read speed test begin.
-Data length : 104 MB.
-Spend time : 0.890000 s.
-32-bit Read speed: 117.817528 M/s.
+Spend time : 1.350000 s.
+32-bit Read speed: 155.344589 M/s.
 Memory performance completed.
 ```
 
@@ -83,37 +78,32 @@ Memory performance completed.
 
 测试环境  `zynq7045 Cortex-A9 800M cached -O3`  优化：
 
-```
-msh />memory_perf
+```shell
+msh />memory_perf                     # Testing with cache
 Memory performance testing start...
 address: 0x10100000, length: 0x100000
+Data length : 209 MB.
 --------------------------------------
 8-bit write speed test begin.
-Data length : 104 MB.
-Spend time : 0.220000 s.
-8-bit write speed: 476.625458 M/s.
+Spend time : 0.290000 s.
+8-bit write speed: 723.155884 M/s.    # Achieve the best write performance
 8-bit read speed test begin.
-Data length : 104 MB.
-Spend time : 0.280000 s.
-8-bit Read speed: 374.491425 M/s.
+Spend time : 0.490000 s.
+8-bit Read speed: 427.990204 M/s.
 --------------------------------------
 16-bit write speed test begin.
-Data length : 104 MB.
-Spend time : 0.150000 s.
-16-bit write speed: 699.050598 M/s.
+Spend time : 0.290000 s.
+16-bit write speed: 723.155884 M/s.   # Achieve the best write performance
 16-bit read speed test begin.
-Data length : 104 MB.
-Spend time : 0.210000 s.
-16-bit Read speed: 499.321930 M/s.
+Spend time : 0.410000 s.
+16-bit Read speed: 511.500488 M/s.
 --------------------------------------
 32-bit write speed test begin.
-Data length : 104 MB.
-Spend time : 0.150000 s.
-32-bit Write speed: 699.050598 M/s.
+Spend time : 0.290000 s.
+32-bit Write speed: 723.155884 M/s.   # Achieve the best write performance
 32-bit read speed test begin.
-Data length : 104 MB.
-Spend time : 0.180000 s.
-32-bit Read speed: 582.542236 M/s.
+Spend time : 0.370000 s.
+32-bit Read speed: 566.797852 M/s.
 Memory performance completed.
 ```
 
