@@ -7,7 +7,7 @@
 - 评估不同类型内存的读写性能
 - 对于带有 cache 的 CPU，可用于评估 cache 性能
 
-非常欢迎小伙伴们在运行完测试程序后，将相关测试结果 PR 到 [测试示例](#6. 测试示例) 中以供他人参考。
+非常欢迎小伙伴们在运行完测试程序后，将相关测试结果 PR 到 [测试示例](#测试示例) 中以供他人参考。
 
 ### 1.1 目录结构
 
@@ -24,9 +24,7 @@
 
 具有良好的移植性，无操作系统依赖。
 
-## 2. 如何打开 `MemoryPerf`
-
-> 说明：描述该 package 位于 menuconfig 的位置，并对与其相关的配置进行介绍
+## 2. 下载方式
 
 使用 `MemoryPerf package` 需要在 RT-Thread 的包管理器中选择它，具体路径如下：
 
@@ -38,7 +36,7 @@ RT-Thread online packages
 
 然后让 RT-Thread 的包管理器自动更新，或者使用 `pkgs --update` 命令更新包到 BSP 中。
 
-## 3. 使用 `MemoryPerf`
+## 3. 使用方法
 
 - 在 `msh` 中运行  `<memory_perf 0x10100000 0x100000>` 命令
 
@@ -52,7 +50,7 @@ RT-Thread online packages
 * 维护：我夏了夏天 （SummerGift）
 * 主页：https://github.com/SummerLife
 
-## 6. 测试示例
+## 测试示例
 
 ### 6.1 示例一
 
