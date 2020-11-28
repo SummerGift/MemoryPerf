@@ -39,7 +39,7 @@ RT-Thread online packages
 
 ### 3.1 测试示例一
 
-测试环境 `zynq7045 Cortex-A9 800M uncached -O3` ：
+测试环境 `zynq7045 Cortex-A9 800M SDRAM uncached -O3` ：
 
 ```shell
 msh />memory_perf 0x10100000 0x100000
@@ -72,7 +72,7 @@ Memory performance completed.
 
 ### 3.2 测试示例二
 
-测试环境  `zynq7045 Cortex-A9 800M cached -O3` ：
+测试环境  `zynq7045 Cortex-A9 800M SDRAM cached -O3` ：
 
 ```shell
 msh />memory_perf 0x10100000 0x100000 # Testing with cache
@@ -134,7 +134,6 @@ Spend time : 0.035000 s.
 Spend time : 0.090000 s.
 32-bit Read speed: 145.635559 M/s.
 Memory performance completed.
-
 ```
 
 ## 4、注意事项
