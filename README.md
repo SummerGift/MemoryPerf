@@ -2,7 +2,12 @@
 
 ## 1. 介绍
 
-这是一个运行在 RT-Thread 上的内存性能测试软件包，用于测试 ARM CPU 的 Memory 读写性能以及 Cache 性能。
+这是一个运行在 RT-Thread 上的内存性能测试软件包，用于对 ARM CPU 的 内存性能评估，可适用于如下场景：
+
+- 评估不同类型内存的读写性能
+- 对于带有 cache 的 CPU，可用于评估 cache 性能
+
+非常欢迎小伙伴们在运行完测试程序后，将相关测试结果 PR 到 [测试示例](#6. 测试示例) 中以供他人参考。
 
 ### 1.1 目录结构
 
@@ -37,7 +42,19 @@ RT-Thread online packages
 
 - 在 `msh` 中运行  `<memory_perf 0x10100000 0x100000>` 命令
 
-### 3.1 测试示例一
+## 4. 注意事项
+
+- 检查内存测试地址与长度是否设置正确
+- 测试内存性能时推荐对比打开 cache 与 关闭 cache 的测试结果
+
+## 5. 联系方式
+
+* 维护：我夏了夏天 （SummerGift）
+* 主页：https://github.com/SummerLife
+
+## 6. 测试示例
+
+### 6.1 示例一
 
 测试环境 `zynq7045 Cortex-A9 800M SDRAM uncached -O3` ：
 
@@ -70,7 +87,7 @@ Spend time : 1.350000 s.
 Memory performance completed.
 ```
 
-### 3.2 测试示例二
+### 6.2 示例二
 
 测试环境  `zynq7045 Cortex-A9 800M SDRAM cached -O3` ：
 
@@ -103,7 +120,7 @@ Spend time : 0.370000 s.
 Memory performance completed.
 ```
 
-### 3.3 测试示例三
+### 6.3 示例三
 
 测试环境  `stm32f407-atk-explorer Cortex-M4 168M SRAM uncached -O3` ：
 
@@ -136,8 +153,7 @@ Spend time : 0.090000 s.
 Memory performance completed.
 ```
 
-
-### 3.4 测试示例四
+### 6.4 示例四
 
 测试环境  `stm32l475-atk-Pandora Cortex-M4 80M SRAM uncached -O3` ：
 
@@ -170,12 +186,3 @@ Spend time : 0.113000 s.
 Memory performance completed.
 ```
 
-## 4、注意事项
-
-- 检查内存测试地址与长度是否设置正确
-- 测试内存性能时推荐对比打开 cache 与 关闭 cache 的测试结果
-
-## 5、联系方式
-
-* 维护：我夏了夏天 （SummerGift）
-* 主页：https://github.com/SummerLife
