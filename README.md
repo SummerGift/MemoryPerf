@@ -70,7 +70,7 @@ Spend time : 1.350000 s.
 Memory performance completed.
 ```
 
-### 3.1 测试示例二
+### 3.2 测试示例二
 
 测试环境  `zynq7045 Cortex-A9 800M cached -O3` ：
 
@@ -101,6 +101,40 @@ Spend time : 0.290000 s.
 Spend time : 0.370000 s.
 32-bit Read speed: 566.797852 M/s.
 Memory performance completed.
+```
+
+### 3.3 测试示例三
+
+测试环境  `stm32f407-atk-explorer Cortex-M4 168M SRAM uncached -O3` ：
+
+```shell
+msh >memory_perf 0x20010000 0x10000
+Memory performance testing start...
+address: 0x20010000, length: 0x10000, iterations: 200
+Data length : 13 MB.
+--------------------------------------
+8-bit write speed test begin.
+Spend time : 0.139000 s.
+8-bit write speed: 94.296402 M/s.
+8-bit read speed test begin.
+Spend time : 0.361000 s.
+8-bit Read speed: 36.308033 M/s.
+--------------------------------------
+16-bit write speed test begin.
+Spend time : 0.070000 s.
+16-bit write speed: 187.245712 M/s.
+16-bit read speed test begin.
+Spend time : 0.180000 s.
+16-bit Read speed: 72.817780 M/s.
+--------------------------------------
+32-bit write speed test begin.
+Spend time : 0.035000 s.
+32-bit Write speed: 374.491425 M/s.
+32-bit read speed test begin.
+Spend time : 0.090000 s.
+32-bit Read speed: 145.635559 M/s.
+Memory performance completed.
+
 ```
 
 ## 4、注意事项
