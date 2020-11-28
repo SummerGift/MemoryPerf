@@ -12,6 +12,11 @@
 #include <stdlib.h>
 #include <rtthread.h>
 
+typedef unsigned char    mp_u8;
+typedef unsigned short   mp_u16;
+typedef unsigned int     mp_u32;
+typedef float            mp_f32;
+
 #define NSECS_PER_SEC          RT_TICK_PER_SECOND
 #define CORETIMETYPE           rt_tick_t
 #define MYTIMEDIFF(fin,ini)    ((fin)-(ini))

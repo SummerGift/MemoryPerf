@@ -14,12 +14,12 @@
 
 #define ITERATIONS     200
 
-static uint32_t data_len;
+static mp_u32 data_len;
 
-static void memory_perf_8bit(void *addr, uint32_t len)
+static void memory_perf_8bit(void *addr, mp_u32 len)
 {
-    volatile uint8_t *read_addr;
-    float seconds, speed;
+    volatile mp_u8 *read_addr;
+    mp_f32 seconds, speed;
 
 
     printf("--------------------------------------\n");
@@ -30,7 +30,7 @@ static void memory_perf_8bit(void *addr, uint32_t len)
     {
         for(int i = 0; i < len; i+=8)
         {
-            read_addr = (uint8_t *) (addr + i);
+            read_addr = (mp_u8 *) (addr + i);
             *read_addr++ = 0x55;
             *read_addr++ = 0x55;
             *read_addr++ = 0x55;
@@ -56,7 +56,7 @@ static void memory_perf_8bit(void *addr, uint32_t len)
     {
         for(int i = 0; i < len; i+=8)
         {
-            read_addr = (uint8_t *) (addr + i);
+            read_addr = (mp_u8 *) (addr + i);
             __asm volatile ("ldrb r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
             __asm volatile ("ldrb r0, [%0]\n"
@@ -84,10 +84,10 @@ static void memory_perf_8bit(void *addr, uint32_t len)
     printf("8-bit Read speed: %f M/s.\n", speed / 1000000);
 }
 
-static void memory_perf_16bit(void *addr, uint32_t len)
+static void memory_perf_16bit(void *addr, mp_u32 len)
 {
-    volatile uint16_t *read_addr;
-    float seconds, speed;
+    volatile mp_u16 *read_addr;
+    mp_f32 seconds, speed;
 
     printf("--------------------------------------\n");
     printf("16-bit write speed test begin.\n");
@@ -97,7 +97,7 @@ static void memory_perf_16bit(void *addr, uint32_t len)
     {
         for(int i = 0; i < len; i += 16)
         {
-            read_addr = (uint16_t *) (addr + i);
+            read_addr = (mp_u16 *) (addr + i);
             *read_addr++ = 0x55;
             *read_addr++ = 0x55;
             *read_addr++ = 0x55;
@@ -123,7 +123,7 @@ static void memory_perf_16bit(void *addr, uint32_t len)
     {
         for(int i = 0; i < len; i += 16)
         {
-            read_addr = (uint16_t *) (addr + i);
+            read_addr = (mp_u16 *) (addr + i);
             __asm volatile ("ldrh r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
             __asm volatile ("ldrh r0, [%0]\n"
@@ -151,10 +151,10 @@ static void memory_perf_16bit(void *addr, uint32_t len)
     printf("16-bit Read speed: %f M/s.\n", speed / 1000000);
 }
 
-static void memory_perf_32bit(void *addr, uint32_t len)
+static void memory_perf_32bit(void *addr, mp_u32 len)
 {
-    volatile uint32_t *read_addr;
-    float seconds, speed;
+    volatile mp_u32 *read_addr;
+    mp_f32 seconds, speed;
 
     printf("--------------------------------------\n");
     printf("32-bit write speed test begin.\n");
@@ -164,7 +164,7 @@ static void memory_perf_32bit(void *addr, uint32_t len)
     {
         for(int i = 0; i < len; i += 32)
         {
-            read_addr = (uint32_t *) (addr + i);
+            read_addr = (mp_u32 *) (addr + i);
             *read_addr++ = 0x55;
             *read_addr++ = 0x55;
             *read_addr++ = 0x55;
@@ -190,7 +190,7 @@ static void memory_perf_32bit(void *addr, uint32_t len)
     {
         for(int i = 0; i < len; i += 32)
         {
-            read_addr = (uint32_t *) (addr + i);
+            read_addr = (mp_u32 *) (addr + i);
             __asm volatile ("ldr r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
             __asm volatile ("ldr r0, [%0]\n"
@@ -211,7 +211,7 @@ static void memory_perf_32bit(void *addr, uint32_t len)
     }
     stop_time_mp();
 
-    seconds = (unsigned int) get_time_mp() / (NSECS_PER_SEC * 1.0);
+    seconds = (mp_u32) get_time_mp() / (NSECS_PER_SEC * 1.0);
     speed = data_len / seconds;
 
     printf("Spend time : %f s.\n", seconds);
@@ -228,12 +228,12 @@ static void memory_perf(int argc, char** argv)
     }
 
     void *address = (void *)strtol(argv[1] + 2, NULL, 16);
-    uint32_t len = (uint32_t)strtol(argv[2] + 2, NULL, 16);
+    mp_u32 len = (mp_u32)strtol(argv[2] + 2, NULL, 16);
     data_len = ITERATIONS * len;
 
     printf("Memory performance testing start...\n");
-    printf("address: %p, length: 0x%lx, iterations: %d\n", address, len, ITERATIONS);
-    printf("Data length : %lu MB.\n", data_len / 1000000);
+    printf("address: %p, length: 0x%x, iterations: %d\n", address, len, ITERATIONS);
+    printf("Data length : %u MB.\n", data_len / 1000000);
 
     memory_perf_8bit(address, len);
     memory_perf_16bit(address, len);
