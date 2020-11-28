@@ -57,21 +57,21 @@ static void memory_perf_8bit(void *addr, uint32_t len)
         for(int i = 0; i < len; i+=8)
         {
             read_addr = (uint8_t *) (addr + i);
-            asm volatile ("ldrb r0, [%0]\n"
+            __asm volatile ("ldrb r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
-            asm volatile ("ldrb r0, [%0]\n"
+            __asm volatile ("ldrb r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
-            asm volatile ("ldrb r0, [%0]\n"
+            __asm volatile ("ldrb r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
-            asm volatile ("ldrb r0, [%0]\n"
+            __asm volatile ("ldrb r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
-            asm volatile ("ldrb r0, [%0]\n"
+            __asm volatile ("ldrb r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
-            asm volatile ("ldrb r0, [%0]\n"
+            __asm volatile ("ldrb r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
-            asm volatile ("ldrb r0, [%0]\n"
+            __asm volatile ("ldrb r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
-            asm volatile ("ldrb r0, [%0]\n"
+            __asm volatile ("ldrb r0, [%0]\n"
                           ::"r"(read_addr): "r0");
         }
     }
@@ -124,21 +124,21 @@ static void memory_perf_16bit(void *addr, uint32_t len)
         for(int i = 0; i < len; i += 16)
         {
             read_addr = (uint16_t *) (addr + i);
-            asm volatile ("ldrh r0, [%0]\n"
+            __asm volatile ("ldrh r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
-            asm volatile ("ldrh r0, [%0]\n"
+            __asm volatile ("ldrh r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
-            asm volatile ("ldrh r0, [%0]\n"
+            __asm volatile ("ldrh r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
-            asm volatile ("ldrh r0, [%0]\n"
+            __asm volatile ("ldrh r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
-            asm volatile ("ldrh r0, [%0]\n"
+            __asm volatile ("ldrh r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
-            asm volatile ("ldrh r0, [%0]\n"
+            __asm volatile ("ldrh r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
-            asm volatile ("ldrh r0, [%0]\n"
+            __asm volatile ("ldrh r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
-            asm volatile ("ldrh r0, [%0]\n"
+            __asm volatile ("ldrh r0, [%0]\n"
                           ::"r"(read_addr): "r0");
         }
     }
@@ -191,21 +191,21 @@ static void memory_perf_32bit(void *addr, uint32_t len)
         for(int i = 0; i < len; i += 32)
         {
             read_addr = (uint32_t *) (addr + i);
-            asm volatile ("ldr r0, [%0]\n"
+            __asm volatile ("ldr r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
-            asm volatile ("ldr r0, [%0]\n"
+            __asm volatile ("ldr r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
-            asm volatile ("ldr r0, [%0]\n"
+            __asm volatile ("ldr r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
-            asm volatile ("ldr r0, [%0]\n"
+            __asm volatile ("ldr r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
-            asm volatile ("ldr r0, [%0]\n"
+            __asm volatile ("ldr r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
-            asm volatile ("ldr r0, [%0]\n"
+            __asm volatile ("ldr r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
-            asm volatile ("ldr r0, [%0]\n"
+            __asm volatile ("ldr r0, [%0]\n"
                           ::"r"(read_addr++): "r0");
-            asm volatile ("ldr r0, [%0]\n"
+            __asm volatile ("ldr r0, [%0]\n"
                           ::"r"(read_addr): "r0");
         }
     }
