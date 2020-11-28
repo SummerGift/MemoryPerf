@@ -54,7 +54,7 @@ RT-Thread online packages
 
 ### 6.1 示例一
 
-测试环境 `zynq7045 Cortex-A9 800M SDRAM uncached -O3` ：
+测试环境 `zynq7045 Cortex-A9 800M SDRAM uncached GCC -O3` ：
 
 ```shell
 msh />memory_perf 0x10100000 0x100000
@@ -87,7 +87,7 @@ Memory performance completed.
 
 ### 6.2 示例二
 
-测试环境  `zynq7045 Cortex-A9 800M SDRAM cached -O3` ：
+测试环境  `zynq7045 Cortex-A9 800M SDRAM cached GCC -O3` ：
 
 ```shell
 msh />memory_perf 0x10100000 0x100000 # Testing with cache
@@ -120,7 +120,7 @@ Memory performance completed.
 
 ### 6.3 示例三
 
-测试环境  `stm32f407-atk-explorer Cortex-M4 168M SRAM uncached -O3` ：
+测试环境  `stm32f407-atk-explorer Cortex-M4 168M SRAM uncached GCC -O3` ：
 
 ```shell
 msh >memory_perf 0x20010000 0x10000
@@ -153,7 +153,40 @@ Memory performance completed.
 
 ### 6.4 示例四
 
-测试环境  `stm32l475-atk-Pandora Cortex-M4 80M SRAM uncached -O3` ：
+测试环境  `stm32f407-atk-explorer Cortex-M4 168M SRAM uncached ARM(AC6) -O3` ：
+
+```shell
+msh >memory_perf 0x20010000 0x10000
+Memory performance testing start...
+address: 20010000, length: 0x10000, iterations: 200
+Data length : 13 MB.
+--------------------------------------
+8-bit write speed test begin.
+Spend time : 0.094000 s.
+8-bit write speed: 139.438309 M/s.
+8-bit read speed test begin.
+Spend time : 0.268000 s.
+8-bit Read speed: 48.907459 M/s.
+--------------------------------------
+16-bit write speed test begin.
+Spend time : 0.047000 s.
+16-bit write speed: 278.876617 M/s.
+16-bit read speed test begin.
+Spend time : 0.134000 s.
+16-bit Read speed: 97.814919 M/s.
+--------------------------------------
+32-bit write speed test begin.
+Spend time : 0.023000 s.
+32-bit Write speed: 569.878296 M/s.
+32-bit read speed test begin.
+Spend time : 0.068000 s.
+32-bit Read speed: 192.752930 M/s.
+Memory performance completed.
+```
+
+### 6.5 示例五
+
+测试环境  `stm32l475-atk-Pandora Cortex-M4 80M SRAM uncached GCC -O3` ：
 
 ```shell
 msh >memory_perf 0x20008000 0xa000
