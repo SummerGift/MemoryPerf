@@ -12,6 +12,8 @@
 #include <stdio.h>
 #include "portme.h"
 
+#define __version__ "1.0.0"
+
 #define ITERATIONS     200
 
 static mp_u32 data_len;
@@ -220,6 +222,10 @@ static void memory_perf_32bit(void *addr, mp_u32 len)
 
 static void memory_perf(int argc, char** argv)
 {
+    printf("\nMemoryPerf version " __version__ " \n");
+    printf("Copyright (c) 2020 SummerGift (summergift2019@gmail.com)\n");
+    printf("Licensed under the MIT License version.\n\n");
+
     if (argc != 3)
     {
         printf("Please set test address and length correctly.\n");
