@@ -233,8 +233,8 @@ static void memory_perf(int argc, char** argv)
         return;
     }
 
-    void *address = (void *)strtol(argv[1] + 2, NULL, 16);
-    mp_u32 len = (mp_u32)strtol(argv[2] + 2, NULL, 16);
+    void *address = (void *)strtoul(argv[1] + 2, NULL, 16);
+    mp_u32 len = (mp_u32)strtoul(argv[2] + 2, NULL, 16);
     data_len = ITERATIONS * len;
 
     printf("Memory performance testing start...\n");
