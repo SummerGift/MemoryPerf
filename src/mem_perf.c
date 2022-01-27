@@ -220,12 +220,29 @@ static void memory_perf_32bit(void *addr, mp_u32 len)
     printf("32-bit Read speed: %f M/s.\n", speed / 1000000);
 }
 
+static void memory_perf_64bit(void *addr, mp_u32 len)
+{
+    printf("64bit not implemented\n");
+}
+
 static void memory_perf(int argc, char** argv)
 {
     printf("\nMemoryPerf version " __version__ " \n");
-    printf("Copyright (c) 2020 SummerGift (summergift2019@gmail.com)\n");
+    printf("Copyright (c) 2022 SummerGift (summergift2019@gmail.com)\n");
     printf("Licensed under the MIT License version.\n\n");
+#ifdef PKG_MEMORYPERF_USING_HEAP
+#if PKG_MEMORYPERF_ALLOC_SIZE <= 0
+#error PKG_MEMORYPERF_ALLOC_SIZE must be > 0
+#endif
+    mp_u32 len = PKG_MEMORYPERF_ALLOC_SIZE;
+    void *address = MEMPERF_MALLOC(len);
 
+    if (!address)
+    {
+        printf("memperf malloc failure, alloc size:0x%x\n", len);
+        return;
+    }
+#else
     if (argc != 3)
     {
         printf("Please set test address and length correctly.\n");
@@ -235,6 +252,7 @@ static void memory_perf(int argc, char** argv)
 
     void *address = (void *)strtoul(argv[1] + 2, NULL, 16);
     mp_u32 len = (mp_u32)strtoul(argv[2] + 2, NULL, 16);
+#endif
     data_len = ITERATIONS * len;
 
     printf("Memory performance testing start...\n");
@@ -244,7 +262,15 @@ static void memory_perf(int argc, char** argv)
     memory_perf_8bit(address, len);
     memory_perf_16bit(address, len);
     memory_perf_32bit(address, len);
-
+#ifdef PKG_MEMORYPERF_ENABLE_64BIT
+    memory_perf_64bit(address, len);
+#endif
     printf("Memory performance completed.\n");
+#ifdef PKG_MEMORYPERF_USING_HEAP
+    if (address != NULL)
+    {
+        MEMPERF_FREE(address);
+    }
+#endif
 }
 MSH_CMD_EXPORT(memory_perf, run memory performance test);
