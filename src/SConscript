@@ -1,7 +1,13 @@
 from building import *
 
 cwd     = GetCurrentDir()
-src     = Glob('*.c') + Glob('*.cpp')
+src     = ['portme.c']
+
+if GetDepend('PKG_MEMORYPERF_ARCH_ARM'):
+    src += ['mem_perf.c']
+if GetDepend('PKG_MEMORYPERF_ARCH_RISCV'):
+    src += ['mem_perf_rv.c']
+
 CPPPATH = [cwd + '/../inc']
 
 group = DefineGroup('memoryperf', src, depend = ['PKG_USING_MEMORYPERF'], CPPPATH = CPPPATH)

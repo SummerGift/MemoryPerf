@@ -15,12 +15,15 @@
 typedef unsigned char    mp_u8;
 typedef unsigned short   mp_u16;
 typedef unsigned int     mp_u32;
+typedef unsigned long    mp_u64;
 typedef float            mp_f32;
 
 #define NSECS_PER_SEC          RT_TICK_PER_SECOND
 #define CORETIMETYPE           rt_tick_t
 #define MYTIMEDIFF(fin,ini)    ((fin)-(ini))
 #define GETMYTIME(_t)          (*_t=rt_tick_get())
+#define MEMPERF_MALLOC(sz)     rt_malloc(sz)
+#define MEMPERF_FREE(p)        rt_free(p)
 
 void start_time_mp(void);
 void stop_time_mp(void);
