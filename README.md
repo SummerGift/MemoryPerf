@@ -48,7 +48,7 @@ RT-Thread online packages
 ## 5. 联系方式
 
 * 维护：我夏了夏天 （SummerGift）
-* 主页：https://github.com/SummerLife
+* 主页：https://github.com/SummerGift
 
 ## 测试示例
 
